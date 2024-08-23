@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Example</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    
+    .container {
+        text-align: center;
+        padding: 20px;
+        border: 2px solid #000;
+        background-color:yellow;
+        transition: background-color 0.3s;
+        width: 60%;
+        height: 60%;
+    }
+    
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: green;
+    }
+    
+    p {
+        font-size: 20px;
+        color: black;
+    }
+    
+</style>
+<body>
+    <div class="container">
+        <button id="toggleButton">Change</button>
+        <p id="textElement">Original State</p>
+    </div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const button = document.getElementById('toggleButton');
+        const textElement = document.getElementById('textElement');
+        const container = document.querySelector('.container');
+        
+        let isToggled = false;
+    
+        button.addEventListener('click', () => {
+            if (isToggled) {
+                button.textContent = 'Change';
+                button.style.backgroundColor = 'green';
+                textElement.textContent = 'Original State';
+                textElement.style.color = 'black';
+                container.style.backgroundColor = 'yellow';
+            } else {
+                button.textContent = 'Reset';
+                button.style.backgroundColor = 'red';
+                textElement.textContent = 'Changed State';
+                textElement.style.color = 'red';
+                container.style.backgroundColor = 'black';
+            }
+            isToggled = !isToggled;
+        });
+    });
+    
+</script>
+</html>
